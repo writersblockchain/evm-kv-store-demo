@@ -3,9 +3,30 @@ import MyImage from './secret-logo.png';
 import React, { useState, useEffect } from "react";
 import { initializeWeb3Modal } from './config/web3ModalConfig';
 import { useInitEthereum } from "./functions/initEthereum";
+import Encrypt from './components/Encrypt';
+//
+import { SecretNetworkClient } from "secretjs";
 
 function App() {
   const [chainId, setChainId] = useState("");
+
+  let query = async () => {
+    const secretjs = new SecretNetworkClient({
+      url: "https://lcd.testnet.secretsaturn.net",
+      chainId: "pulsar-3",
+    });
+  
+    const query_tx = await secretjs.query.compute.queryContract({
+      contract_address: process.env.REACT_APP_SECRET_ADDRESS,
+      code_hash: process.env.REACT_APP_CODE_HASH,
+      query: { retrieve_value: { key: "sean",
+        viewing_key: "viewing key"
+       } },
+    });
+    console.log(query_tx);
+  };
+  
+  query();
 
   useEffect(() => {
     initializeWeb3Modal();
@@ -30,6 +51,7 @@ function App() {
           [click here for docs]
         </a>
       </h6>
+      <Encrypt />
      
       <div className="flex justify-center transform scale-50 mt-4">
       <img
