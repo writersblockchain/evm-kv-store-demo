@@ -87,57 +87,44 @@ export async function handleSubmit(e, key, value, viewing_key) {
     maxFeePerGas && maxPriorityFeePerGas
       ? maxFeePerGas.add(maxPriorityFeePerGas)
       : await provider.getGasPrice();
-
-      let amountOfGas;
+      let amountOfGas; 
       let my_gas = 150000;
-   
-       if (chainId === "4202") {
-         amountOfGas = gasFee.mul(callbackGasLimit).mul(100000).div(2);
-       } 
-   
-       if (chainId === "128123") {
-         amountOfGas = gasFee.mul(callbackGasLimit).mul(1000).div(2);
-         my_gas = 15000000;
-       }
-   
-       if (chainId === "1287") {
-         amountOfGas = gasFee.mul(callbackGasLimit).mul(1000).div(2);
-         my_gas = 15000000;
-       }
-   
-       if (chainId === "300") {
-         amountOfGas = gasFee.mul(callbackGasLimit).mul(100000).div(2);
-         my_gas = 15000000;
-       }
-   
-       if (chainId === "5003") {
-         amountOfGas = gasFee.mul(callbackGasLimit).mul(1000000).div(2);
-         my_gas = 1500000000;
-       }
-   
-       if (chainId === "80002") {
-         amountOfGas = gasFee.mul(callbackGasLimit).mul(100).div(2);
-         my_gas = 200000;
-       }
-   
-       if (chainId === "1995") {
-         amountOfGas = gasFee.mul(callbackGasLimit).mul(100).div(2);
-         my_gas = 200000;
-       }
-   
-       else {
-         amountOfGas = gasFee.mul(callbackGasLimit).mul(3).div(2);
-       }
-
-  const tx_params = {
-    gas: hexlify(my_gas),
-    to: publicClientAddress,
-    from: myAddress,
-    value: hexlify(amountOfGas),
-    data: functionData,
-  };
-
-  const txHash = await provider.send("eth_sendTransaction", [tx_params]);
-  console.log(`Transaction Hash: ${txHash}`);
+      
+      if (chainId === "4202") {
+        amountOfGas = gasFee.mul(callbackGasLimit).mul(100000).div(2);
+      } else if (chainId === "128123") {
+        amountOfGas = gasFee.mul(callbackGasLimit).mul(1000).div(2);
+        my_gas = 15000000;
+      } else if (chainId === "1287") {
+        amountOfGas = gasFee.mul(callbackGasLimit).mul(1000).div(2);
+        my_gas = 15000000;
+      } else if (chainId === "300") {
+        amountOfGas = gasFee.mul(callbackGasLimit).mul(100000).div(2);
+        my_gas = 15000000;
+      } else if (chainId === "5003") {
+        amountOfGas = gasFee.mul(callbackGasLimit).mul(1000000).div(2);
+        my_gas = 1500000000;
+      } else if (chainId === "80002") {
+        amountOfGas = gasFee.mul(callbackGasLimit).mul(100).div(2);
+        console.log("amountOfGas: ", amountOfGas);
+      } else if (chainId === "1995") {
+        amountOfGas = gasFee.mul(callbackGasLimit).mul(100).div(2);
+        my_gas = 200000;
+      } else {
+        amountOfGas = gasFee.mul(callbackGasLimit).mul(3).div(2);
+      }
+      
+      const tx_params = {
+        gas: hexlify(my_gas),
+        to: publicClientAddress,
+        from: myAddress,
+        value: hexlify(amountOfGas),
+        data: functionData,
+      };
+      
+      console.log("tx_params: ", tx_params.value);
+      
+      const txHash = await provider.send("eth_sendTransaction", [tx_params]);
+      console.log(`Transaction Hash: ${txHash}`);
 
 }
