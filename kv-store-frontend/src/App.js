@@ -25,7 +25,7 @@ function App() {
         
       <h6 className="text-xs hover:underline text-brand-blue">
         <a
-          href="https://docs.scrt.network/secret-network-documentation/confidential-computing-layer/ibc/storing-encrypted-data-on-secret-network"
+          href="https://docs.scrt.network/secret-network-documentation/confidential-computing-layer/ethereum-evm-developer-toolkit/usecases/storing-encrypted-data-on-secret-network/key-value-store-developer-tutorial"
           target="_blank"
           rel="noopener noreferrer"
         >
