@@ -5,6 +5,8 @@ use secret_path::msg::{PostExecutionMsg, PrivContractHandleMsg};
 use schemars::JsonSchema;
 use serde::{Deserialize, Serialize};
 
+use crate::state::Event;
+
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
 pub struct InstantiateMsg {
     pub gateway_address: Addr,
@@ -26,6 +28,14 @@ pub struct InputStoreMsg {
     pub value: String,
     // ViewingKey of the StorageItem to unlock the value
     pub viewing_key: String,
+
+    pub location: String, 
+
+    pub date: String, 
+
+pub description: String
+
+
 }
 
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
@@ -51,7 +61,9 @@ pub struct ResponseRetrieveMsg {
     // value of the StorageItem  
     pub value: String,
     // response message
-    pub message: String
+    pub message: String,
+
+    pub event: Event
 }
 
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]

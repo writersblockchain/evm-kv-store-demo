@@ -29,11 +29,16 @@ export async function handleSubmit(e, key, value, viewing_key) {
   // The function name of the function that is called on the private contract
   const handle = "store_value";
 
+ 
+
   // Data are the calldata/parameters that are passed into the contract
   const data = JSON.stringify({
     key: key,
     value: value,
-    viewing_key: viewing_key
+    viewing_key: viewing_key,
+    location: "New York",
+    date: "2024-10-05",
+    description: "A great event!",
   });
 
   const chainId = (await provider.getNetwork()).chainId.toString();

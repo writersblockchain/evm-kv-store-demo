@@ -20,4 +20,14 @@ pub struct StorageItem {
     pub value: String,
     // ViewingKey of the StorageItem to unlock the value
     pub viewing_key: String,
+    pub event: Event
+
 }
+
+#[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
+pub struct Event {
+pub location: String, 
+pub date: String, 
+pub description: String
+}
+
