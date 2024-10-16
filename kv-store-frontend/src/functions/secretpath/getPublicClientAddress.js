@@ -1,7 +1,7 @@
 // secretpath/getPublicClientAddress.js
 
 // URL to your JSON file on GitHub (replace with your actual link)
-const jsonUrl = "https://raw.githubusercontent.com/SecretFoundation/secretpath/refs/heads/master/config/chains.json";
+const jsonUrl = "https://raw.githubusercontent.com/SecretFoundation/secretpath-config/refs/heads/master/config/chains.json";
 
 // Cache to store chain data
 let chainDataCache = null;
