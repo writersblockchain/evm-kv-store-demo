@@ -39,6 +39,8 @@ sha3 = "0.10.4"
 base64 = "0.22.1"
 secret-path = { git = "https://github.com/SecretSaturn/SecretPath", branch = "main", package = "secret_gateway", default-features = false }
 anybuf = "0.5.0"
+cc = { version = "=1.1.10" }
+
 
 [[bin]]
 name = "schema"
