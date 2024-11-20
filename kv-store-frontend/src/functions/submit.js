@@ -115,6 +115,11 @@ export async function handleSubmit(e, key, value, viewing_key) {
         amountOfGas = gasFee.mul(callbackGasLimit).mul(100).div(2);
         my_gas = 200000;
       } 
+
+      else if (chainId === "421614") {
+        amountOfGas = gasFee.mul(callbackGasLimit).mul(25).div(2);
+        my_gas = 300000;
+      } 
       else {
         amountOfGas = gasFee.mul(callbackGasLimit).mul(3).div(2);
       }
