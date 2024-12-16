@@ -91,7 +91,7 @@ export async function handleSubmit(e, key, value, viewing_key) {
       let my_gas = 150000;
       
       if (chainId === "4202") {
-        amountOfGas = gasFee.mul(callbackGasLimit).mul(100000).div(2);
+        amountOfGas = gasFee.mul(callbackGasLimit).mul(100).div(2);
       } else if (chainId === "128123") {
         amountOfGas = gasFee.mul(callbackGasLimit).mul(1000).div(2);
         my_gas = 15000000;
